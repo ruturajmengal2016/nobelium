@@ -5,8 +5,8 @@ import third from './Images/third.jpg'
 import forth from './Images/forth.jpg' 
 
 function App() {
-    const array = [first,second,third,forth] 
     const [count,setCount] = useState(0) 
+    const array = [first,second,third,forth] 
     useEffect(()=>{
         document.title = "Change Images"
       },[])
