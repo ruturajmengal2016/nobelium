@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import first from './Images/first.jpg' 
 import second from './Images/second.jpg' 
 import third from './Images/third.jpg' 
@@ -7,6 +7,9 @@ import forth from './Images/forth.jpg'
 function App() {
     const array = [first,second,third,forth] 
     const [count,setCount] = useState(0) 
+    useEffect(()=>{
+        document.title = "Change Images"
+      },[])
   return (
     <div className='flex justify-center h-screen p-4'>
         <div className='w-[50%] bg-red-600 flex justify-center'> 
