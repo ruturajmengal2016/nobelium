@@ -1,5 +1,6 @@
 import React from "react";
-
+import Child from "./Child";
+import Header from "./Header";
 function App() {
   const data = [
     { Name: "Ruturaj Mengal", Age: 21, email: "ruturajmengal2016@gmail.com" },
@@ -23,11 +24,16 @@ function App() {
     { Name: "Ruturaj Mengal", Age: 21, email: "ruturajmengal2016@gmail.com" },
     { Name: "Ruturaj Mengal", Age: 21, email: "ruturajmengal2016@gmail.com" },
   ];
-  return <div>
-    {data.map((e,i)=>{
-      return <div className="h-[5rem] w-[5rem] grid grid-cols-3">{e.Name}</div>;
-    })}
-  </div>;
+  return (
+    <div className="h-full bg-gradient-to-br from-red-500 to-blue-600 p-2 flex flex-col gap-4 justify-center">
+      <Header />
+      <div className="grid grid-cols-4 gap-[1rem] h-fit w-fit">
+        {data.map((e, i) => {
+          return <Child Name={e.Name} age={e.Age} email={e.email} />;
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default App;
