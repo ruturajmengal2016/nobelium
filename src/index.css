@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.App{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(212, 96, 96);
+}
