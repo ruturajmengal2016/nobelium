@@ -4,7 +4,67 @@
 
 .App{
     height: 100vh;
-    display: flex;
-    justify-content: center;
     background-color: rgb(212, 96, 96);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    overflow: hidden;
+}
+.navbar{
+    display: none;
+    justify-content: space-between;
+}
+
+.navbar > ul{
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar > ul > li{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+}
+button{
+    display: block;
+    float: right;
+}
+.hero-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-div > img{
+    width: 500px;
+    height: 200px;
+    max-width: 300px;
+    max-height: 250px;
+    align-self:center;
+}
+
+.hero-div > p{
+    text-align: justify;
+    padding: 1rem;
+}
+
+@media screen and (min-width:400px) {
+    .App{
+        background-color: rgb(66, 66, 212);
+    }
+    .navbar{
+        display:flex;
+    }
+    button{
+        display: none;
+    }
+    .hero-div{
+        flex-direction: row;
+    }
+    .hero-div > img{
+        width: 350px;
+        height: 200px;
+    }
+    .mob{
+        display: none;
+    }
 }
