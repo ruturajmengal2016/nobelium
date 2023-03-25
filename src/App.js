@@ -1,73 +1,53 @@
-import React, { useState } from "react";
-import img from "./Images/imhs.jpg";
+import React, { useEffect, useState } from "react";
+
 function App() {
+  const [user, setuser] = useState([]);
+  const fetchData = async () => {
+    try {
+      const res = await fetch("https://nobelium-0vvw.onrender.com/data");
+      const data = await res.json();
+      console.log(data);
+      setuser(data);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
-    <div className="App">
-      <Nav />
-      <Hero />
+    <div className="h-screen grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
+      {user.map((element, index) => {
+        return (
+          <User
+            name={element.Name}
+            email={element.Email}
+            id={element.Roll_no}
+            mob={element.Mob}
+            key={index}
+          />
+        );
+      })}
     </div>
   );
 }
 
-function Nav() {
-  const [menu, setMenu] = useState(false);
+function User({ name, email, id, mob }) {
   return (
-    <div>
-      <nav className="navbar">
-        <ul className="left">
-          <li>Home</li>
-          <li>Service</li>
-          <li>Contact</li>
-          <li>About us</li>
-        </ul>
-        <ul className="right">
-          <li>Login</li>
-          <li>SignIn</li>
-        </ul>
-      </nav>
-      <button
-        onClick={() => {setMenu(!menu)
-        }}>
-        &#8801;
-      </button>
-      {menu && <Navmob />}
-    </div>
-  );
-}
-
-function Navmob() {
-  return (
-      <nav className="flex justify-center mt-8 bg-emerald-300 text-pink-500 mob">
-        <ul className=" flex flex-col gap-1">
-          <li>Home</li>
-          <li>Service</li>
-          <li>Contact</li>
-          <li>About us</li>
-          <li>Login</li>
-          <li>SignIn</li>
-        </ul>
-      </nav>
-  );
-}
-
-function Hero() {
-  return (
-    <div className="hero-div">
-      <img src={img} alt="" />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-        dolorem odio quibusdam pariatur exercitationem error sequi, asperiores
-        beatae ad nesciunt autem quas voluptatum id recusandae? Quidem dolorum
-        voluptates rem totam enim similique ducimus consequuntur sint ex eum.
-        Molestiae neque laborum commodi assumenda possimus reprehenderit error
-        labore doloremque, optio placeat provident natus architecto recusandae
-        eum veniam reiciendis ut, quam accusantium aliquam esse? Magnam numquam
-        maiores ex corporis cumque id nisi amet quo quam velit minus ratione
-        alias voluptatum earum reprehenderit, eveniet saepe molestias incidunt
-        quibusdam voluptates reiciendis dignissimos expedita unde modi! Ut
-        praesentium saepe eum temporibus nisi consequuntur ullam fuga iste
-        doloribus iure, autem ipsum sed quae.
-      </p>
+    <div className="h-[8rem] w-[20rem] shadow-xl shadow-gray-500 border-[1px] border-red-400 flex box-border p-1 pl-2 flex-col rounded-lg">
+      <span>
+        User_id <span className="text-blue-600">{id}</span>
+      </span>
+      <span>
+        User_name <span className="text-blue-600">{name}</span>
+      </span>
+      <span>
+        Email <span className="text-blue-600">{email}</span>
+      </span>
+      <span>
+        Contact <span className="text-blue-600">{mob}</span>
+      </span>
     </div>
   );
 }
