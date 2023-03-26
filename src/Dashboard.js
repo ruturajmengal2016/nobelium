@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 function Dashboard() {
-  const [user, setuser] = useState([]);
-  const url = "https://nobelium-0vvw.onrender.com/data"
+  const [users, setuser] = useState([]);
+  const url = "https://nobelium-0vvw.onrender.com/data";
   const fetchData = async () => {
     try {
       const res = await fetch(url);
@@ -16,20 +16,23 @@ function Dashboard() {
   useEffect(() => {
     fetchData(url);
   }, []);
+
   return (
-    <div className="h-screen grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
-      {user.map((element, index) => {
-        return (
-          <User
-            name={element.Name}
-            email={element.Email}
-            id={element.Roll_no}
-            mob={element.Mob}
-            key={index}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
+        {users.map((user, index) => {
+          return (
+            <User
+              name={user.Name}
+              email={user.Email}
+              id={user.Roll_no}
+              mob={user.Mob}
+              key={index}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }
 
