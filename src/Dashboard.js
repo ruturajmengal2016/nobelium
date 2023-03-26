@@ -19,19 +19,23 @@ function Dashboard() {
 
   return (
     <>
-      <div className="grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
-        {users.map((user, index) => {
-          return (
-            <User
-              name={user.Name}
-              email={user.Email}
-              id={user.Roll_no}
-              mob={user.Mob}
-              key={index}
-            />
-          );
-        })}
-      </div>
+      {users ? (
+        <div className="grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
+          {users.map((user, index) => {
+            return (
+              <User
+                name={user.Name}
+                email={user.Email}
+                id={user.Roll_no}
+                mob={user.Mob}
+                key={index}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="flex justify-center items-center">"Loading..."</div>
+      )}
     </>
   );
 }
