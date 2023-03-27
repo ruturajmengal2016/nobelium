@@ -16,10 +16,10 @@ function Dashboard() {
   useEffect(() => {
     fetchData(url);
   }, []);
-
+  console.log(users)
   return (
     <>
-      {users ? (
+      {users !== [] ? (
         <div className="grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
           {users.map((user, index) => {
             return (
@@ -34,7 +34,7 @@ function Dashboard() {
           })}
         </div>
       ) : (
-        <div className="flex justify-center items-center">"Loading..."</div>
+        <div className="flex justify-center items-center h-screen">Loading...</div>
       )}
     </>
   );
