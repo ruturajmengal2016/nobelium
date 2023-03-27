@@ -33,17 +33,26 @@ function App() {
 const Root = () => {
   return (
     <>
-      <div className="flex bg-orange-400 text-[2rem] gap-3 font-bold p-2 sticky top-0 h-[5rem] items-center">
-        <img src={img1} alt="logo" className="h-[3rem] w-[3rem]" />
+      <div className=" bg-orange-400 sm:text-[2rem] gap-3 font-bold p-2 sticky top-0 sm:h-[5rem] items-center flex">
+        <img
+          src={img1}
+          alt="logo"
+          className="sm:h-[3rem] sm:w-[3rem] hidden sm:inline-block"
+        />
         <Link to="/">
-          <span className="active:text-white">Home</span>
+          <span className="active:text-white hidden sm:inline-block">Home</span>
         </Link>
         <Link to="/Dashboard">
-          <span className="active:text-white">Dashboard</span>
+          <span className="active:text-white hidden sm:inline-block">
+            Dashboard
+          </span>
         </Link>
         <Link to="/Register">
-          <span className="active:text-white">Register</span>
+          <span className="active:text-white hidden sm:inline-block">
+            Register
+          </span>
         </Link>
+        <Mob />
       </div>
       <div>
         <Outlet />
@@ -54,4 +63,20 @@ const Root = () => {
     </>
   );
 };
+
+function Mob() {
+  return (
+    <div className="sm:hidden flex flex-col items-center">
+      <Link to="/">
+        <span className="">Home</span>
+      </Link>
+      <Link to="/Dashboard">
+        <span className="">Dashboard</span>
+      </Link>
+      <Link to="/Register">
+        <span className="">Register</span>
+      </Link>
+    </div>
+  );
+}
 export default App;

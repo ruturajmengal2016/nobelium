@@ -3,7 +3,7 @@ import React from "react";
 function Register() {
   return (
     <div className="h-screen bg-red-400 flex justify-between items-center overflow-hidden">
-      <div className="">
+      <div className="hidden sm:inline-flex">
         <div className="rounded-full h-[30rem] w-[30rem] bg-sky-500 opacity-75 -translate-x-[6rem] translate-y-[12rem] ring-8 ring-green-500 z-0"></div>
       </div>
       <div className="bg-blue-400 h-[25rem] w-[30rem] rounded-lg">
