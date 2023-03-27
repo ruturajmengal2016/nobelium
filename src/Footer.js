@@ -4,7 +4,9 @@ function Footer() {
   return (
     <div className="w-screen bg-blue-500 flex justify-around p-3">
       <div>
-        <h1 className="text-[1.5rem] font-semibold text-white underline decoration-pink-500">Company</h1>
+        <h1 className="text-[1.5rem] font-semibold text-white underline decoration-pink-500">
+          Company
+        </h1>
         <ul>
           <li>About Us</li>
           <li>Privacy Policy</li>
@@ -14,7 +16,9 @@ function Footer() {
         </ul>
       </div>
       <div>
-        <h1 className="text-[1.5rem] font-semibold text-white underline decoration-pink-500">Get help</h1>
+        <h1 className="text-[1.5rem] font-semibold text-white underline decoration-pink-500">
+          Get help
+        </h1>
         <ul>
           <li>FAQ</li>
           <li>Query</li>
@@ -22,7 +26,9 @@ function Footer() {
         </ul>
       </div>
       <div>
-        <h1 className="text-[1.5rem] font-semibold text-white underline decoration-pink-500">Merchandise</h1>
+        <h1 className="text-[1.5rem] font-semibold text-white underline decoration-pink-500">
+          Merchandise
+        </h1>
         <ul>
           <li>Shoe</li>
           <li>Jacket</li>
