@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Dashboard() {
-  const [users, setuser] = useState([]);
+  const [users, setuser] = useState(null);
   const url = "https://nobelium-0vvw.onrender.com/data";
   const fetchData = async () => {
     try {
@@ -16,10 +16,9 @@ function Dashboard() {
   useEffect(() => {
     fetchData(url);
   }, []);
-  console.log(users)
   return (
     <>
-      {users !== [] ? (
+      {users !== null ? (
         <div className="grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
           {users.map((user, index) => {
             return (
