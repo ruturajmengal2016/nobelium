@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import BarLoader from "react-spinners/BarLoader";
 function Dashboard() {
   const [users, setuser] = useState(null);
   const url = "https://nobelium-0vvw.onrender.com/data";
@@ -33,7 +33,9 @@ function Dashboard() {
           })}
         </div>
       ) : (
-        <div className="flex justify-center items-center h-screen">Loading...</div>
+        <div className="flex justify-center items-center h-screen">
+          <BarLoader color="red" />
+        </div>
       )}
     </>
   );
