@@ -14,20 +14,21 @@ function Register() {
           <span className="font-mono font-bold text-[2rem]">REGISTER</span>
           <input
             type="text"
+            placeholder="Id..."
+            className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600 placeholder:text-red-600 placeholder:translate-x-3"
+          />
+          <input
+            type="text"
             placeholder="Name..."
-            className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600"
+            className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600 placeholder:text-red-600 placeholder:translate-x-3"
           />
           <input
             type="email"
             placeholder="Email..."
-            className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600"
+            className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600 placeholder:text-red-600 placeholder:translate-x-3"
           />
-          <input
-            type="text"
-            placeholder="Id..."
-            className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600"
-          />
-          <button className="border-2 border-pink-500 p-2 w-[20%] font-bold text-xl text-red-500">
+
+          <button className="border-2 border-pink-500 p-2 w-[20%] font-bold text-xl text-red-500 active:scale-90 rounded-md ring-1">
             Submit
           </button>
         </form>
