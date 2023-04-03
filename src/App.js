@@ -12,6 +12,7 @@ import Dashboard from "./Dashboard";
 import Home from "./Home";
 import Register from "./Register";
 import Footer from "./Footer";
+import Performance from "./Component/Performance";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,7 +20,8 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
         <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/Register" element={<Register />} /> 
+        <Route path="/performance" element={<Performance />} /> 
       </Route>
     )
   );

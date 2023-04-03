@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BarLoader from "react-spinners/BarLoader";
+
 function Dashboard() {
   const [users, setuser] = useState(null);
   const url = "https://nobelium-0vvw.onrender.com/data";
@@ -43,7 +44,12 @@ function Dashboard() {
 
 function User({ name, email, id, mob }) {
   return (
-    <div className="h-[8rem] w-[20rem] shadow-xl shadow-gray-500 border-[1px] border-red-400 flex box-border p-1 pl-2 flex-col rounded-lg">
+    <div
+      className="h-[8rem] w-[20rem] shadow-xl shadow-gray-500 border-[1px] border-red-400 flex box-border p-1 pl-2 flex-col rounded-lg"
+      onClick={() => {
+        window.open("/performance");
+      }}
+    >
       <span>
         User_id <span className="text-blue-600">{id}</span>
       </span>
