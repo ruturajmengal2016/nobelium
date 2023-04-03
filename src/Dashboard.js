@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
 
 function Dashboard() {
   const [users, setuser] = useState(null);
+  const navigate = useNavigate();
   const url = "https://nobelium-0vvw.onrender.com/data";
   const fetchData = async () => {
     try {
@@ -29,6 +31,7 @@ function Dashboard() {
                 id={user.Roll_no}
                 mob={user.Mob}
                 key={index}
+                navigate={navigate}
               />
             );
           })}
@@ -42,12 +45,12 @@ function Dashboard() {
   );
 }
 
-function User({ name, email, id, mob }) {
+function User({ name, email, id, mob, navigate }) {
   return (
     <div
       className="h-[8rem] w-[20rem] shadow-xl shadow-gray-500 border-[1px] border-red-400 flex box-border p-1 pl-2 flex-col rounded-lg"
       onClick={() => {
-        window.open("/performance");
+        navigate("/performance", { state: { id: id } });
       }}
     >
       <span>
