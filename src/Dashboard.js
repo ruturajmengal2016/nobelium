@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
-
+import axios from './Axios/axios'
 function Dashboard() {
   const [users, setuser] = useState(null);
   const navigate = useNavigate();
-  const url = "https://nobelium-0vvw.onrender.com/data";
   const fetchData = async () => {
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      setuser(data);
-    } catch (error) {
-      return error;
-    }
+    const res = await axios.get("/data")
+    setuser(res.data)
   };
 
   useEffect(() => {
-    fetchData(url);
+    fetchData();
   }, []);
   return (
     <>
