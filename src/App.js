@@ -8,7 +8,7 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import Dashboard from "./Dashboard";
+import Dashboard, { fetchData } from "./Dashboard";
 import Home from "./Home";
 import Register from "./Register";
 import Footer from "./Footer";
@@ -19,7 +19,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Dashboard" element={<Dashboard />} loader={fetchData} />
         <Route path="/Register" element={<Register />} /> 
         <Route path="/performance" element={<Performance />} /> 
       </Route>

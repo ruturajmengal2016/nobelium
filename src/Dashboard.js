@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
 import axios from './Axios/axios'
-function Dashboard() {
-  const [users, setuser] = useState(null);
-  const navigate = useNavigate();
-  const fetchData = async () => {
-    const res = await axios.get("/data")
-    setuser(res.data)
-  };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+export const fetchData = async () => {
+  const res = await axios.get("/data")
+  return res.data
+};
+
+function Dashboard() {
+  const navigate = useNavigate();
+  const users = useLoaderData()
   return (
     <>
       {users !== null ? (
