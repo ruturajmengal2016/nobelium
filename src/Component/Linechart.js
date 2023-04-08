@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Title
 } from "recharts";
 function Linechart({ user }) {
   const data = [];
@@ -41,6 +42,7 @@ function Linechart({ user }) {
         <XAxis dataKey="date" stroke="#ff5722" />
         <YAxis stroke="#ff5722" />
         <Tooltip />
+        <Title text="Code Zinger" />
       </LineChart>
     </>
   );
