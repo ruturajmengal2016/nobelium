@@ -20,8 +20,8 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
         <Route path="/Dashboard" element={<Dashboard />} loader={fetchData} />
-        <Route path="/Register" element={<Register />} /> 
-        <Route path="/performance" element={<Performance />} /> 
+        <Route path="/Register" element={<Register />} />
+        <Route path="/performance" element={<Performance />} />
       </Route>
     )
   );
@@ -35,26 +35,32 @@ function App() {
 const Root = () => {
   return (
     <>
-      <div className=" bg-orange-400 sm:text-[2rem] gap-5 font-bold p-2 sticky top-0 sm:h-[5rem] items-center flex w-screen">
+      <div className=" bg-orange-400 sm:text-[1.5rem] gap-5 font-bold p-2 sticky top-0 sm:h-[5rem] items-center flex w-[100%] justify-between pr-12 box-border shadow-md shadow-gray-600">
         <img
           src={img1}
           alt="logo"
           className="sm:h-[3rem] sm:w-[3rem] hidden sm:inline-block"
         />
-        <Link to="/">
-          <span className="active:text-white hidden sm:inline-block hover:text-blue-500 hover:scale-105">Home</span>
-        </Link>
-        <Link to="/Dashboard">
-          <span className="active:text-white hidden sm:inline-block hover:text-blue-500 hover:scale-105">
+        <div className="flex gap-[1rem] float-right">
+          <Link
+            to="/"
+            className="sm:inline-block"
+          >
+            Home
+          </Link>
+          <Link
+            to="/Dashboard"
+            className="sm:inline-block "
+          >
             Dashboard
-          </span>
-        </Link>
-        <Link to="/Register">
-          <span className="active:text-white hidden sm:inline-block hover:text-blue-500 hover:scale-105">
+          </Link>
+          <Link
+            to="/Register"
+            className="sm:inline-block"
+          >
             Register
-          </span>
-        </Link>
-        <Mob />
+          </Link>
+        </div>
       </div>
       <div>
         <Outlet />
@@ -66,19 +72,4 @@ const Root = () => {
   );
 };
 
-function Mob() {
-  return (
-    <div className="sm:hidden flex flex-col items-center">
-      <Link to="/">
-        <span className="hover:text-red-500">Home</span>
-      </Link>
-      <Link to="/Dashboard">
-        <span className="hover:text-red-500">Dashboard</span>
-      </Link>
-      <Link to="/Register">
-        <span className="hover:text-red-500">Register</span>
-      </Link>
-    </div>
-  );
-}
 export default App;
