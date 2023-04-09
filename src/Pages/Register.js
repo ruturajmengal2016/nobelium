@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import axios from "../Axios/axios";
 function Register() {
-  const [data, setData] = useState({ id: "", name: "", email: "" });
-  const sendData = async () => {
-    await axios.post("/post", data);
-  };
+  // const [data, setData] = useState({ id: "", name: "", email: "" }) 
   return (
     <div className="h-screen bg-red-400 flex justify-between items-center overflow-hidden">
       <div className="hidden sm:inline-flex">
@@ -12,7 +9,7 @@ function Register() {
       </div>
       <div className="bg-blue-400 h-[25rem] w-[30rem] rounded-lg">
         <form
-          action="/post"
+          action="https://nobelium-0vvw.onrender.com/post"
           method="post"
           className="flex flex-col gap-5 items-center justify-center h-[100%]"
         >
@@ -45,12 +42,11 @@ function Register() {
             }}
           />
 
-          <button
+          <input
+            type="submit"
             className="border-2 border-pink-500 p-2 w-[25%] font-bold text-xl text-red-500 active:scale-90 rounded-md ring-1"
             onClick={sendData}
-          >
-            Submit
-          </button>
+          />
         </form>
       </div>
     </div>
