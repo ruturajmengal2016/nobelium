@@ -13,6 +13,7 @@ function Register() {
       <div className="bg-blue-400 h-[25rem] w-[30rem] rounded-lg">
         <form
           action="/post"
+          method="post"
           className="flex flex-col gap-5 items-center justify-center h-[100%]"
         >
           <span className="font-mono font-bold text-[2rem]">REGISTER</span>
