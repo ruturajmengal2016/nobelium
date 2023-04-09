@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import axios from "../Axios/axios";
 function Register() {
   const [data, setData] = useState({ id: "", name: "", email: "" });
-  const sendData = async() => {
-    const res = await axios.post("/post", data);
-    console.log(res)
+  const sendData = async () => {
+    await axios.post("/post", data);
   };
   return (
     <div className="h-screen bg-red-400 flex justify-between items-center overflow-hidden">
@@ -47,10 +46,7 @@ function Register() {
 
           <button
             className="border-2 border-pink-500 p-2 w-[25%] font-bold text-xl text-red-500 active:scale-90 rounded-md ring-1"
-            onClick={() => {
-              sendData();
-              setData({});
-            }}
+            onClick={sendData}
           >
             Submit
           </button>
