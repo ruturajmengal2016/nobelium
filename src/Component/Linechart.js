@@ -30,10 +30,15 @@ function Linechart({ user }) {
   }
   return (
     <div>
-      <span className="block text-center text-[1.8rem] -translate-x-[1rem] font-bold text-blue-600">
+      <span className="block text-center text-[1.8rem] -translate-x-[1rem] font-bold text-blue-600 max-sm:rotate-90 max-sm:relative max-sm:ml-[25rem] max-sm:mt-[5rem]">
         Code Zinger
       </span>
-      <LineChart width={1000} height={300} data={data}>
+      <LineChart
+        width={1000}
+        height={300}
+        data={data}
+        className="max-sm:rotate-90"
+      >
         <Line
           type="monotone"
           dataKey="value"

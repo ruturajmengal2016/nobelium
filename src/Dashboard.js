@@ -40,7 +40,7 @@ function Dashboard() {
 function User({ name, email, id, mob, navigate }) {
   return (
     <div
-      className="h-[8rem] w-[20rem] shadow-xl shadow-gray-500 border-[1px] border-red-400 flex box-border p-1 pl-2 flex-col rounded-lg"
+      className="h-[8rem] w-[20rem] shadow-xl shadow-gray-500 border-[1px] border-red-400 flex box-border p-1 pl-2 flex-col rounded-lg cursor-pointer"
       onClick={() => {
         navigate("/performance", { state: { id: id } });
       }}

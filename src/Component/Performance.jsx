@@ -50,11 +50,11 @@ function Performance() {
       .reduce((acc, curr) => acc + curr, 0);
   }, [user]);
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center max-sm:h-[120vh]">
       <Box
         sx={{
           width: "90vw",
-          height: "90vh",
+          height: {sm:"120vh",md:"90vh"},
           backgroundColor: grey[900],
           display: "flex",
           flexDirection: "column",
@@ -64,10 +64,13 @@ function Performance() {
       >
         <Box
           sx={{
-            display: "flex",
             width: "90%",
             justifyContent: "space-between",
-            alignSelf:"center"
+            alignSelf: "center",
+            display: {
+              sm: "none",
+              md: "flex",
+            },
           }}
         >
           <Box
@@ -98,8 +101,8 @@ function Performance() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              fontWeight:"bold",
-              color:"white"
+              fontWeight: "bold",
+              color: "white",
             }}
           >
             <span>Total Attendance: {totalAttendance}</span>
@@ -107,15 +110,25 @@ function Performance() {
             <span>Total Assignments: {totalAssignment}</span>
           </Box>
         </Box>
-        <Box sx={{ padding: "1rem",display:"flex",justifyContent:"center" }}>
+        <Box
+          sx={{ padding: "1rem", display: "flex", justifyContent: "center" }}
+        >
           <Box
             sx={{
-              backgroundColor:"#b3e5fc",
+              backgroundColor: { sm: "#212121", md: "#b3e5fc" },
               width: "95%",
               height: "25rem",
-              display:"flex",
-              justifyContent:"center",
-              alignItems:"center"
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position:{
+                sm:"relative",
+                md:"static"
+              },
+              top:{
+                sm:'15rem',
+                md:0
+              }
             }}
           >
             <Linechart user={user} />
