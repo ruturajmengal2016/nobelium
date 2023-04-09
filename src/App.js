@@ -8,10 +8,10 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import Dashboard, { fetchData } from "./Dashboard";
-import Home from "./Home";
-import Register from "./Register";
-import Footer from "./Footer";
+import Dashboard, { fetchData } from "./Pages/Dashboard";
+import Home from "./Pages/Home";
+import Register from "./Pages/Register";
+import Footer from "./Pages/Footer";
 import Performance from "./Component/Performance";
 
 function App() {

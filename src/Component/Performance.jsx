@@ -50,11 +50,11 @@ function Performance() {
       .reduce((acc, curr) => acc + curr, 0);
   }, [user]);
   return (
-    <div className="h-screen flex justify-center items-center max-sm:h-[120vh]">
+    <div className="h-screen flex justify-center items-center">
       <Box
         sx={{
           width: "90vw",
-          height: {sm:"120vh",md:"90vh"},
+          height: "90vh",
           backgroundColor: grey[900],
           display: "flex",
           flexDirection: "column",
@@ -64,13 +64,10 @@ function Performance() {
       >
         <Box
           sx={{
+            display: "flex",
             width: "90%",
             justifyContent: "space-between",
             alignSelf: "center",
-            display: {
-              sm: "none",
-              md: "flex",
-            },
           }}
         >
           <Box
@@ -115,20 +112,12 @@ function Performance() {
         >
           <Box
             sx={{
-              backgroundColor: { sm: "#212121", md: "#b3e5fc" },
+              backgroundColor: "#b3e5fc",
               width: "95%",
               height: "25rem",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              position:{
-                sm:"relative",
-                md:"static"
-              },
-              top:{
-                sm:'15rem',
-                md:0
-              }
             }}
           >
             <Linechart user={user} />

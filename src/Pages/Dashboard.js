@@ -1,7 +1,7 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import BarLoader from "react-spinners/BarLoader";
-import axios from './Axios/axios'
+import axios from '../Axios/axios'
 
 export const fetchData = async () => {
   const res = await axios.get("/data")
