@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "../Axios/axios";
 function Register() {
-  // const [data, setData] = useState({ id: "", name: "", email: "" }) 
+  // const [data, setData] = useState({ id: "", name: "", email: "" })
   return (
     <div className="h-screen bg-red-400 flex justify-between items-center overflow-hidden">
       <div className="hidden sm:inline-flex">
@@ -19,33 +19,23 @@ function Register() {
             placeholder="Id..."
             name="id"
             className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600 placeholder:text-red-600 placeholder:translate-x-3"
-            onChange={(e) => {
-              setData({ ...data, id: e.target.value });
-            }}
           />
           <input
             type="text"
             placeholder="Name..."
             name="name"
             className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600 placeholder:text-red-600 placeholder:translate-x-3"
-            onChange={(e) => {
-              setData({ ...data, name: e.target.value });
-            }}
           />
           <input
             type="email"
             placeholder="Email..."
             name="email"
             className="w-[70%] h-[10%] rounded-lg shadow-md shadow-gray-600 placeholder:text-red-600 placeholder:translate-x-3"
-            onChange={(e) => {
-              setData({ ...data, email: e.target.value });
-            }}
           />
 
           <input
             type="submit"
             className="border-2 border-pink-500 p-2 w-[25%] font-bold text-xl text-red-500 active:scale-90 rounded-md ring-1"
-            onClick={sendData}
           />
         </form>
       </div>
