@@ -1,19 +1,22 @@
 import React from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import BarLoader from "react-spinners/BarLoader";
-import axios from '../Axios/axios'
-
-export const fetchData = async () => {
-  const res = await axios.get("/data")
-  return res.data
-};
+import { useNavigate } from "react-router-dom";
+import axios from "../Axios/axios";
+import { TailSpin } from  'react-loader-spinner'
 
 function Dashboard() {
+  const [users, setUsers] = React.useState([]);
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const res = await axios.get("/data");
+    setUsers(res.data);
+  };
+
   const navigate = useNavigate();
-  const users = useLoaderData()
   return (
     <>
-      {users !== null ? (
+      {users.length ? (
         <div className="grid sm:grid-cols-4 gap-4 p-2 grid-cols-1">
           {users.map((user, index) => {
             return (
@@ -30,7 +33,16 @@ function Dashboard() {
         </div>
       ) : (
         <div className="flex justify-center items-center h-screen">
-          <BarLoader color="red" />
+          <TailSpin
+            height="80"
+            width="80"
+            color="#4fa94d"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
         </div>
       )}
     </>

@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import axios from "../Axios/axios";
+import React from "react";
 function Register() {
-  // const [data, setData] = useState({ id: "", name: "", email: "" })
   return (
     <div className="h-screen bg-red-400 flex justify-between items-center overflow-hidden">
       <div className="hidden sm:inline-flex">
