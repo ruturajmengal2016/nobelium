@@ -4,8 +4,16 @@ import axios from "../Axios/axios";
 import Box from "@mui/material/Box";
 import { grey, red, indigo } from "@mui/material/colors";
 import Linechart from "./Linechart";
+import {
+  totalAssignment,
+  totalCodeZinger,
+  totalAttendance,
+} from "../function/performanceFunction";
 function Performance() {
   const [user, setData] = useState([]);
+  const [totalAttendances, setTotalAttendance] = useState(0);
+  const [totalCodezingers, setCodeZinger] = useState(0);
+  const [totalAssignments, settotalAssignment] = useState(0);
   const location = useLocation();
   const fetchData = async (id) => {
     const res = await axios.get(`/user/${id}`);
@@ -13,42 +21,10 @@ function Performance() {
   };
   useEffect(() => {
     fetchData(location.state.id);
-  }, [location.state.id]);
-
-  const totalAttendance = useMemo(() => {
-    const regxAttendance = new RegExp("Attendance", "gi");
-    return Object.keys(user)
-      .filter((ele) => {
-        return regxAttendance.test(ele);
-      })
-      .map((ele) => {
-        return user[ele];
-      })
-      .reduce((acc, curr) => acc + curr, 0);
-  }, [user]);
-  const totalCodeZinger = useMemo(() => {
-    const regxCodezinger = new RegExp("CodeZinger", "gi");
-    return Object.keys(user)
-      .filter((ele) => {
-        return regxCodezinger.test(ele);
-      })
-      .map((ele) => {
-        return user[ele];
-      })
-      .reduce((acc, curr) => acc + curr, 0);
-  }, [user]);
-
-  const totalAssignment = useMemo(() => {
-    const regxAssignment = new RegExp("Submission", "gi");
-    return Object.keys(user)
-      .filter((ele) => {
-        return regxAssignment.test(ele);
-      })
-      .map((ele) => {
-        return user[ele];
-      })
-      .reduce((acc, curr) => acc + curr, 0);
-  }, [user]);
+    setTotalAttendance(totalAttendance(user));
+    setCodeZinger(totalCodeZinger(user));
+    settotalAssignment(totalAssignment(user));
+  }, [location.state.id, user]);
   return (
     <div className="h-screen flex justify-center items-center">
       <Box
@@ -102,9 +78,9 @@ function Performance() {
               color: "white",
             }}
           >
-            <span>Total Attendance: {totalAttendance}</span>
-            <span>Total Code Zinger Marks: {totalCodeZinger}</span>
-            <span>Total Assignments: {totalAssignment}</span>
+            <span>Total Attendance: {totalAttendances}</span>
+            <span>Total Code Zinger Marks: {totalCodezingers}</span>
+            <span>Total Assignments: {totalAssignments}</span>
           </Box>
         </Box>
         <Box

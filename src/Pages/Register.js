@@ -1,5 +1,5 @@
 import React from "react";
-function Register() {
+function Update() {
   return (
     <div className="h-screen bg-red-400 flex justify-between items-center overflow-hidden">
       <div className="hidden sm:inline-flex">
@@ -11,7 +11,7 @@ function Register() {
           method="post"
           className="flex flex-col gap-5 items-center justify-center h-[100%]"
         >
-          <span className="font-mono font-bold text-[2rem]">REGISTER</span>
+          <span className="font-mono font-bold text-[2rem]">UPDATE</span>
           <input
             type="text"
             placeholder="Id..."
@@ -41,4 +41,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Update;

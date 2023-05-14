@@ -1,5 +1,4 @@
 import React from "react";
-import img1 from "./Images/logo.jpg";
 import {
   Route,
   createBrowserRouter,
@@ -10,17 +9,17 @@ import {
 } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import Home from "./Pages/Home";
-import Register from "./Pages/Register";
-import Footer from "./Pages/Footer";
 import Performance from "./Component/Performance";
-
+import Box from "@mui/material/Box";
+import Update from "./Pages/Register";
+import Typography from "@mui/material/Typography";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/update" element={<Update />} />
         <Route path="/performance" element={<Performance />} />
       </Route>
     )
@@ -35,39 +34,52 @@ function App() {
 const Root = () => {
   return (
     <>
-      <div className=" bg-orange-500 sm:text-[1.5rem] gap-5 font-bold p-2 sticky top-0 sm:h-[5rem] items-center flex w-[100%] justify-between pr-12 box-border shadow-md shadow-gray-600 z-10">
-        <img
-          src={img1}
-          alt="logo"
-          className="sm:h-[3rem] sm:w-[3rem] hidden sm:inline-block"
-        />
-        <div className="flex gap-[1rem] float-right">
-          <Link
-            to="/"
-            className="sm:inline-block font-normal"
-          >
+      <Box
+        sx={{
+          zIndex: 5,
+          height: "4rem",
+          position: "sticky",
+          top: 0,
+          display: "flex",
+          backgroundColor: "#2196f3",
+          alignItems: "center",
+          boxSizing: "border-box",
+          padding: "0rem 2rem",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: "bold",
+            color: "red",
+            backgroundColor: "white",
+            padding: "0.5rem",
+            borderRadius: "0.5rem",
+          }}
+        >
+          Nobelium
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            gap: "2rem",
+            translate: "-2rem 0rem",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Link index to="/" className="text-[1.2rem]">
             Home
           </Link>
-          <Link
-            to="/Dashboard"
-            className="sm:inline-block font-normal"
-          >
+          <Link to="/dashboard" className="text-[1.2rem]">
             Dashboard
           </Link>
-          <Link
-            to="/Register"
-            className="sm:inline-block font-normal"
-          >
-            Register
+          <Link to="/update" className="text-[1.2rem]">
+            Update
           </Link>
-        </div>
-      </div>
-      <div>
-        <Outlet />
-      </div>
-      <div>
-        <Footer />
-      </div>
+        </Box>
+      </Box>
+      <Outlet />
     </>
   );
 };
