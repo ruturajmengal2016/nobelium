@@ -32,3 +32,9 @@ Open https://nobelium-dashboard.onrender.com/ in your browser to view the applic
 - Ruturaj Mengal, https://github.com/ruturajmengal2016
 
 ## screenshots
+![Screenshot 2023-06-07 215549](https://github.com/ruturajmengal2016/nobelium/assets/114099113/aef05dd4-981e-4dec-8020-a5a86f996cef)
+
+![Screenshot 2023-06-07 215646](https://github.com/ruturajmengal2016/nobelium/assets/114099113/a76be739-e89d-489e-b90d-a53e0c97ad7e)
+
+![Screenshot 2023-06-07 215704](https://github.com/ruturajmengal2016/nobelium/assets/114099113/f33cbddb-ac5d-4290-aa19-88a5e15baee8)
+
